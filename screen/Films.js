@@ -1,0 +1,51 @@
+export const films = [
+    {
+      key: "1",
+      name: "Kick",
+      actor: "salman khan",
+      year: "2015",
+      genere: "Comedy",
+    },
+    {
+      key: "2",
+      name: "Sultan",
+      actor: "salman khan",
+      year: "2017",
+      genere: "Comedy,emotional",
+    },
+    {
+      key: "3",
+      name: "Radhe",
+      actor: "salman khan",
+      year: "2020",
+      genere: "Comedy",
+    },
+    {
+      key: "4",
+      name: "Bajrangi bhaijaan",
+      actor: "salman khan",
+      year: "2016",
+      genere: "Comedy,Emotional",
+    },
+    {
+      key: "5",
+      name: "tubelight",
+      actor: "salman khan",
+      year: "2018",
+      genere: "Comedy",
+    },
+    {
+      key: "6",
+      name: "Maine Pyar kiya",
+      actor: "salman khan",
+      year: "1990",
+      genere: "Love,Drama",
+    },
+    {
+      key: "7",
+      name: "Hum apke hai kon",
+      actor: "salman khan",
+      year: "1995",
+      genere: "Love,Drama",
+    },
+  ];

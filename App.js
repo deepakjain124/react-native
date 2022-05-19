@@ -5,6 +5,7 @@ import {TextInput  } from 'react-native-paper'
 import Flatlist from "./screen/Flatlist";
 import Netflixcard from "./screen/Netflixcard";
 import Ourbutton from "./screen/Ourbutton";
+import Scrolleffect from "./screen/Scrolleffect"
 
 
 export default function App() {
@@ -19,12 +20,14 @@ export default function App() {
         defaultValue={text}
       />
       <Text style={{padding: 10, fontSize: 42}}>
-        {text.split(' ').map((word) => word && '🍕').join(' ')}
+        {/* {text.split(' ').map((word) => word && '🍕').join(' ')} */}
+        {text}
       </Text>
       <Button title="good"></Button>
 <Flatlist/>
 <Ourbutton/>
 <Netflixcard/>
+<Scrolleffect/>
      {/* <Image style={Styles.imgstyle} source={{
        uri:"../deepak/assets/test.avif"
      }

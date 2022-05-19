@@ -16,13 +16,12 @@ const Flatlist = () => {
       keyExtractor={(index) => {
         return index.key;
       }}
-      horizontal //for horixontal view
+      // horizontal //for horixontal view
       data={names}
     //   numColumns={2}
     inverted
       showsHorizontalScrollIndicator={false} //remove scrollbar from bottom
       renderItem={(element) => {
-        console.log(element.item.name);
         return <Text style={style.textstyle}>{element.item.name}</Text>;
       }}
     />
