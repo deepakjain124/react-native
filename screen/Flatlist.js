@@ -1,5 +1,6 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 const Flatlist = () => {
   const names = [
@@ -12,17 +13,23 @@ const Flatlist = () => {
     { key: "7", name: "Vikas" },
   ];
   return (
-    <FlatList style={style.liststyle}
+    <FlatList
+      style={style.liststyle}
       keyExtractor={(index) => {
         return index.key;
       }}
       // horizontal //for horixontal view
       data={names}
-    //   numColumns={2}
-    inverted
+      //   numColumns={2}
+      inverted
       showsHorizontalScrollIndicator={false} //remove scrollbar from bottom
       renderItem={(element) => {
-        return <Text style={style.textstyle}>{element.item.name}</Text>;
+        return (
+          <TouchableOpacity>
+            {" "}
+            <Text style={style.textstyle}>{element.item.name}</Text>
+          </TouchableOpacity>
+        );
       }}
     />
   );
@@ -32,14 +39,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     padding: "25px",
     margin: "5px",
-    textAlign:"center",
+    textAlign: "center",
     backgroundColor: "skyblue",
     borderRadius: "10px",
     fontWeight: "bold",
     color: "red",
   },
-  liststyle:{
-      marginTop:"20px"
-  }
+  liststyle: {
+    marginTop: "20px",
+  },
 });
 export default Flatlist;

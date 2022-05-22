@@ -6,7 +6,7 @@ import { films } from "./Films";
 const Scrolleffect = () => {
  
   return (
-    <View>
+    <View style={{margin:20}}>
       <Text style={{textAlign:"center",fontWeight:"bolder",marginBottom:30,fontSize:25}}>Top 10 Salman movies</Text>
       <FlatList
         data={films}
