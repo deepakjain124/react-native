@@ -1,49 +1,85 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React from "react";
+import { NavigationContainer, StackActions } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-Stack";
+import Home from "./src/Home";
+import About from "./src/About";
+import Course from "./src/Course";
+import Userdata from "./src/Userdata";
+import Contact from "./src/Contact";
 import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-} from "react-native";
-import { TextInput } from "react-native-paper";
-import Flatlist from "./screen/Flatlist";
-import LoginForm from "./screen/LoginForm";
-import Netflixcard from "./screen/Netflixcard";
-import Ourbutton from "./screen/Ourbutton";
-import Scrolleffect from "./screen/Scrolleffect";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-export default function App() {
-  const [text, setText] = useState("");
-  const Stack = createNativeStackNavigator();
-
+  useFonts,
+  JosefinSans_400Regular,
+  JosefinSans_500Medium,
+  JosefinSans_600SemiBold,
+  JosefinSans_700Bold,
+} from "@expo-google-fonts/josefin-sans";
+import {
+  Nunito_600SemiBold,
+  Nunito_600SemiBold_Italic,
+  Nunito_700Bold,
+} from "@expo-google-fonts/nunito";
+import AppLoading from "expo-app-loading";
+const App = () => {
+  let [fontsLoaded] = useFonts({
+    JosefinSans_400Regular,
+    JosefinSans_500Medium,
+    JosefinSans_600SemiBold,
+    JosefinSans_700Bold,
+    Nunito_600SemiBold,
+    Nunito_600SemiBold_Italic,
+    Nunito_700Bold,
+  });
+  if (!fontsLoaded) {
+    <AppLoading />;
+  }
+  const stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen name="Login" component={LoginForm}/>
-          <Stack.Screen name="scroll" component={Scrolleffect}/>
-        </Stack.Navigator>
-      </NavigationContainer>
-  )
-}
+      <stack.Navigator initialRouteName="Home">
+        {/* <stack.Screen name="Home" component={Home}/> */}
+        <stack.Screen name="Home" options={{ headerShown: false }}>
+          {(props) => <Home {...props} channelname="Tomato App" />}
+        </stack.Screen>
+        <stack.Screen
+          options={{
+            headerBackTitleStyle: {
+              fontSize: 25,
+              fontFamily: "Nunito_600SemiBold",
+            },
+            headerTitle: "States",
+            headerTitleAlign: "center",
+          }}
+          name="States"
+          component={Course}
+        />
+        <stack.Screen
+          options={{
+            headerBackTitleStyle: { fontSize: 25 ,fontFamily: "Nunito_600SemiBold",},
+            headerTitle: "StudentData",
+            headerTitleAlign: "center",
+          }}
+          name="Student"
+          component={Userdata}
+        />
+        <stack.Screen
+          options={{
+            headerBackTitleStyle: { fontSize: 25,fontFamily: "Nunito_600SemiBold", },
+            headerTitleAlign: "center",
+          }}
+          name="About"
+          component={About}
+        />
+        <stack.Screen
+          options={{
+            headerBackTitleStyle: { fontSize: 25,fontFamily: "Nunito_600SemiBold", },
+            headerTitleAlign: "center",
+          }}
+          name="Contact"
+          component={Contact}
+        />
+      </stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-const Styles = StyleSheet.create({
-  container: {
-    alignContent: "center",
-    padding: 37,
-  },
-  imgstyle: {
-    alignContent: "center",
-    height: 200,
-    marginTop: 10,
-  },
-  textstyle: {
-    fontWeight: "bolder",
-    fontSize: 25,
-    textAlign: "center",
-  },
-});
+export default App;
